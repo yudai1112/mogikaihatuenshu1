@@ -9,12 +9,10 @@
 			<%@ include file="/common/header.jsp" %>
 		<h2 style="text-align:center">注文フォーム</h2>
 		<hr style="text-align: center; height: 2px; background-color: black; width: 950px">
-		<form class="order">
+		<form class="order" oninput="result.value=parseInt(sSize.value) + parseInt(mSize.value)+ parseInt(lSize.value)+ parseInt(kidsSize.value);">
 		<table style="margin:auto" class="order-form">
 		<tr>
-			<th>名前</th><td><input type="text" name="name"></td><tr>
-			<tr><th>メールアドレス</th><td><input type="text" name="mailadress"></td></tr>
-			<tr><th>ユニフォームの種類</th>
+			<th>ユニフォームの種類</th>
 			<td><select name="type">
 				<option value="uniformA">ユニフォームA</option>
 				<option value="uniformB">ユニフォームB</option>
@@ -22,12 +20,17 @@
 				<option value="uniformD">ユニフォームD</option>
 				<option value="uniformE">ユニフォームE</option>
 			</select></td></tr>
-			<tr><th>注文数</th><td><input type="number" value="1" min="1" max="10" step="1"></td></tr>
+			<tr><th>サイズS</th><td><input type="number" value="0" min="0" max="100" step="1" name="sSize"></td><tr>
+			<tr><th>サイズM</th><td><input type="number" value="0" min="0" max="100" step="1" name="mSize"></td><tr>
+			<tr><th>サイズL</th><td><input type="number" value="0" min="0" max="100" step="1"name="lSize"></td><tr>
+			<tr><th>子供サイズ</th><td><input type="number" value="0" min="0" max="100" step="1"name="kidsSize"></td><tr>
+			<tr><th>合計注文数</th><td><output name="result">0</output></td></tr>
 			<tr><th>備考</th><td><textarea cols="50" rows="4" name="bikou"></textarea></td>
 		</tr>
 		</table>
-			<input type="submit" value="注文">
+			<input type="submit" value="カートに入れる">
 		</form>
 
 	</body>
+</html>
 </html>
