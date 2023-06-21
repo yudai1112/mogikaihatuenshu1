@@ -1,10 +1,10 @@
-<%@page contentType="text/html; charset=UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
 <title>商品一覧</title>
 </head>
 <body>
-	<table>
+	<table> <!-- 商品一覧テーブル -->
 		<tr style="background-color:yellow">
 			<th>イメージ</th>
 			<th>商品名</th>
@@ -12,6 +12,8 @@
 			<th>カラー</th>
 			<th>サイズ展開</th>
 		</tr>
+
+		<!-- 後ほどDB作成後に繰り返し処理-->
 		<tr>
 			<th>画像</th>
 			<th>ユニフォームA</th>
