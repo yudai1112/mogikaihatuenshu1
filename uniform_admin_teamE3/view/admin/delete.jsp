@@ -18,6 +18,7 @@
 					</div>
 				</div>
 			</div>
+			
 
 			<!-- 書籍登録コンテンツ部分 -->
 			<div id="main" class="container">
