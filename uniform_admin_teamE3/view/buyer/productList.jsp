@@ -25,10 +25,17 @@
 			<td>2300円</td>
 			<td>青</td>
 			<td>S,M,L,子供用</td>
-			<td><a href="カートURL">カートに入れる</a><td>
+		</tr>
+
+		<tr>
+			<td>画像</td>
+			<td>ユニフォームB</td>
+			<td>2300円</td>
+			<td>黄色</td>
+			<td>S,M,L,子供用</td>
 		</tr>
 	</table>
-	<p style="text-align:center"><a href="注文フォームURL" >カート</a></p>
+	<p style="text-align:center"><a href="注文フォームURL" >注文する</a></p>
 	<br>
 	<a href="ろぐいんがめんURL">管理者ログイン</a>
 	<br>
