@@ -8,7 +8,8 @@
 	</head>
 	<body>
 		<!-- ヘッダー -->
-
+		<%@ include file="/common/header.jsp" %>
+		<hr style="height: 2px; background-color: #98fd98"></hr>
 
 		<table style="margin: auto">
 			<tr>
@@ -65,7 +66,8 @@
 		</table>
 
 		<!-- フッター -->
+		<hr></hr>
+		<%@ include file="/common/footer.jsp" %>
 
-	</body>
 </html>
 

@@ -9,63 +9,59 @@
 		<!-- ブラウザ全体 -->
 		<div id="wrap">
 
-			<!-- ヘッダー部分 -->
+			<!-- ヘッダー -->
 			<%@ include file="/common/header.jsp" %>
+			<hr style="height: 2px; background-color: #98fd98"></hr>
 
-					<!-- ページタイトル -->
-					<div id="page_title">
-						<h2 style = "text-align:center">商品削除</h2>
-					</div>
-				</div>
+			<!-- ページタイトル -->
+			<div id="page_title">
+				<h2 style = "text-align:center">商品削除</h2>
 			</div>
-
-			<!-- 書籍登録コンテンツ部分 -->
-			<div id="main" class="container">
+		</div>
 
 
+		<!-- 書籍登録コンテンツ部分 -->
+		<div id="main" class="container">
 
-				<!--  入力フォーム -->
-				<form action="<%=request.getContextPath()%>/insert">
-					<table class="order-form"  style="text-align:center">
+			<!--  入力フォーム -->
+			<form action="<%=request.getContextPath()%>/insert">
+				<table class="order-form"  style="text-align:center; margin: auto">
 					<tr>
-						<th>商品ナンバー</th>
-						<td><input type="text" name="number"></td>
+						<th style="background-color: #98df98">商品ナンバー</th>
+						<td>0001</td>
 					</tr>
 					<tr>
-						<th>商品名</th>
-						<td><input type="text" name="title"></td>
+						<th style="background-color: #98df98">商品名</th>
+						<td>ユニフォームA</td>
 					</tr>
 					<tr>
-						<th>在庫数</th>
-						<td><input type="text" name="Inventory"></td>
+						<th style="background-color: #98df98">在庫数</th>
+						<td>100</td>
 					</tr>
 					<tr>
-						<th>価格</th>
-						<td><input type="text" name="price"></td>
+						<th style="background-color: #98df98">価格</th>
+						<td>&yen;2000</td>
 					</tr>
+				</table>
 
-					</table>
-
-<div style="display: flex; justify-content: center;">
+				<div style="text-align: center; padding-top: 20px">
 					<input type="submit" value="削除">
-					</div>
-				</form>
+				</div>
+			</form>
 
 			<!-- メニュー部分 -->
 			<div id="menu">
 				<div class="container">
 					<!-- ナビゲーション  -->
 					<div id="nav" style="display: flex; justify-content: center;">
-						<ul>
-							<li><a href ="<%=request.getContextPath()%>/view/menu.jsp" >[商品一覧に戻る]</a></li>
-						</ul>
+						<p><a href ="<%=request.getContextPath()%>/view/menu.jsp" >[商品一覧に戻る]</a></p>
 					</div>
+				</div>
+
+				<!-- フッター -->
+				<hr></hr>
+				<%@ include file="/common/footer.jsp" %>
 
 			</div>
-
-			<!-- フッター部分 -->
-			<%@ include file="/common/footer.jsp" %>
-
 		</div>
 	</body>
-</html>
