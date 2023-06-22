@@ -6,7 +6,7 @@
 </head>
 <body>
 	<!-- ヘッダー部分 -->
-			<%@ include file="/common/header.jsp" %>
+			<%@ include file="/common/headerBuyer.jsp" %>
 	<h2 style="text-align:center">商品一覧</h2>
 	<hr style="text-align: center; height: 2px; background-color: black; width: 950px">
 	<table style="margin:auto" class="product-table"> <!-- 商品一覧テーブル -->

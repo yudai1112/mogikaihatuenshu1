@@ -6,11 +6,11 @@
 	</head>
 	<body>
 	<!-- ヘッダー部分 -->
-			<%@ include file="/common/header.jsp" %>
+			<%@ include file="/common/headerBuyer.jsp" %>
 		<h2 style="text-align:center">注文フォーム</h2>
 		<hr style="text-align: center; height: 2px; background-color: black; width: 950px">
 		<form class="order" oninput="result.value=parseInt(sSize.value) + parseInt(mSize.value)+ parseInt(lSize.value)+ parseInt(kidsSize.value);">
-		<table style="margin:auto" class="order-form">
+		<table style="margin:auto" class="product-table">
 		<tr>
 			<th>ユニフォームの種類</th>
 			<td><select name="type">
@@ -30,7 +30,7 @@
 		</table>
 			<input type="submit" value="カートに入れる">
 		</form>
+		<p><a href="http://localhost:8080/uniform_admin_teamE3/view/buyer/productList.jsp">商品一覧に戻る</a></p>
 
 	</body>
-</html>
 </html>
