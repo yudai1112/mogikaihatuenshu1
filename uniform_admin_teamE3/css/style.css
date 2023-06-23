@@ -3,18 +3,26 @@
 }
 .order-list th{
 	width: 200px;
-	background-color: #98fd98;
+	background-color: #ff7f50;
 }
 .product-table th{
 	width:150px;
-	background-color: #98fd98;
+	background-color: #ff7f50;
 }
 
 .order-form th{
 	text-align:center;
 	width: 200px;
-	background-color: #98fd98;
+	background-color: #ff7f50;
 }
 .order{
 	text-align:center;
+}
+.order-confirm th{
+	width: 200px;
+	background-color: #ff7f50;
+}
+
+.order-correct{
+	margin:auto;
 }

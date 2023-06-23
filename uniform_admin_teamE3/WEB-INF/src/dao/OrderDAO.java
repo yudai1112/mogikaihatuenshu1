@@ -7,8 +7,7 @@ package dao;
 
 import java.sql.*;
 
-import bean.Order;
-import bean.Uniform;
+import bean.*;
 
 
 public class OrderDAO {
@@ -65,11 +64,11 @@ public class OrderDAO {
 
 		// SQL文
 		String sql = "INSERT INTO order_info (uniform_id, user_id, quantity, order_remark, order_date, payment_status, send_status) "
-				+ "VALUES('"+ order.getUniformid() + "','"+ order.getUserid() +"','"+ order.getQuantity() +"','"+ order.getQuantity() +\"',"
+				+ "VALUES('"+ order.getUniformid() + "','"+ order.getUserid() +"','"+ order.getQuantity() +"','"+ order.getQuantity() +"',"
 				+ order.getQuantity() +",CURDATE())";
 
 		try {
-			con = UniformDAO.getConnection();
+			con = getConnection();
 			smt = con.createStatement();
 
 			// SQL文をDBへ発行

@@ -25,7 +25,7 @@
 			<tr><th>サイズL</th><td><input type="number" value="0" min="0" max="100" step="1"name="lSize"></td><tr>
 			<tr><th>子供サイズ</th><td><input type="number" value="0" min="0" max="100" step="1"name="kidsSize"></td><tr>
 			<tr><th>合計注文数</th><td><output name="result">0</output></td></tr>
-			<tr><th>備考</th><td><textarea cols="50" rows="4" name="bikou"></textarea></td>
+			<tr><th>備考</th><td><textarea cols="50" rows="4" name="bikou" >特になし</textarea></td>
 		</tr>
 		</table>
 			<input type="submit" value="カートに入れる">
