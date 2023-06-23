@@ -1,13 +1,16 @@
 package dao;
 
 /*
- * 管理者情報用DAO
+ * 注文情報用DAO
  */
 
+
 import java.sql.*;
+
 import bean.*;
 
-public class AdminDAO {
+
+public class OrderDAO {
 
 	// DB情報をフィールド変数に定義
 	/**
@@ -43,35 +46,34 @@ public class AdminDAO {
 		}
 	}
 
-	/*
-	 * DBのadministrator_infoテーブルからIDとパスワードの条件に合致する情報を取得
+//  -------------------------------------------------------------------------------------------
+
+	/**
+	 * 『 insert 』
 	 *
-	 * @param userid
+	 * 引数の購入データを元にDBのorderinfoテーブルに新規登録処理を行うメソッド
 	 *
-	 * @return userオブジェクト
 	 */
-	public Admin selectByUser(String admin_id, String password) {
+	public void insert(Order order) {
 
 		Connection con = null;
 		Statement smt = null;
 
-		Admin admin = new Admin(); // 戻り値用
+
+// *****ここから作成途中*****
+
+		// SQL文
+		String sql = "INSERT INTO order_info (uniform_id, user_id, quantity, order_remark, order_date, payment_status, send_status) "
+				+ "VALUES('"+ order.getUniformid() + "','"+ order.getUserid() +"','"+ order.getQuantity() +"','"+ order.getQuantity() +"',"
+				+ order.getQuantity() +",CURDATE())";
 
 		try {
 			con = getConnection();
 			smt = con.createStatement();
 
-			// sql文
-			String sql = "SELECT * FROM administrator_info WHERE user ='" + admin_id + "' AND password='" + password
-					+ "'";
+			// SQL文をDBへ発行
+			smt.executeUpdate(sql);
 
-			ResultSet rs = smt.executeQuery(sql);
-
-			// 結果セットからユーザー情報を取り出す
-			if (rs.next()) {
-				admin.setId(rs.getString("user"));
-				admin.setPassword(rs.getString("password"));
-			}
 		} catch (Exception e) {
 			throw new IllegalStateException(e);
 		} finally {
@@ -89,7 +91,5 @@ public class AdminDAO {
 				}
 			}
 		}
-		return admin;
 	}
-
 }
