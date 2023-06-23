@@ -8,9 +8,9 @@ public class Uniform {
 
 	private String size; // サイズ
 
-	private String price; // 価格
+	private int price; // 価格
 
-	private String inventory; // 在庫数
+	private int inventory; // 在庫数
 
 	/**
 	 * コンストラクタ<br>
