@@ -18,6 +18,16 @@ public class Order {
 
 	private String sendstatus; // 発送状況
 
+	//↓6/23追加、対応するget,set,コンストラクタも追加。(定直)
+
+	private String username;	//注文者名前
+
+	private String uniformname;	//商品名前
+
+	private int uniformPrice;		//商品価格
+
+	//↑6/23
+
 	/**
 	 * コンストラクタ<br>
 	 * 注文状況の初期設定をおこなう
@@ -31,7 +41,9 @@ public class Order {
 		this.date = null;
 		this.paymentstatus = null;
 		this.sendstatus = null;
-
+		this.username = null;
+		this.uniformname = null;
+		this.uniformPrice= 0;
 	}
 
 	//ゲッターメソッド↓
@@ -66,6 +78,19 @@ public class Order {
 	public String getSendstatus() {
 		return sendstatus;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getUniformname() {
+		return uniformname;
+	}
+
+	public int getUniformPrice() {
+		return uniformPrice;
+	}
+
 	//ゲッターここまで↑
 
 
@@ -101,6 +126,18 @@ public class Order {
 
 	public void setSendstatus(String sendstatus) {
 		this.sendstatus = sendstatus;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setUniformname(String uniformname) {
+		this.uniformname = uniformname;
+	}
+
+	public void setUniformPrice(int uniformPrice) {
+		this.uniformPrice = uniformPrice;
 	}
 	//セッターここまで↑
 }
