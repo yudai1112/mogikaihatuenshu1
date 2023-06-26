@@ -6,6 +6,12 @@
   -->
 
 <%@page contentType="text/html; charset=UTF-8" %>
+<%@page import="bean.Order" %>
+
+<%
+//サーブレットでクエストスコープに登録した情報を取得
+Order order= (Order)request.getAttribute("Order");
+%>
 
 <html>
 	<head>
@@ -14,7 +20,7 @@
 
 	<body>
 	<!-- ヘッダー -->
-		<%@ include file="/common/headerBuyer.jsp" %>
+		<%@include file="/common/headerBuyer.jsp" %>
 
 		<table style="margin: auto">
 			<tr>
@@ -49,9 +55,9 @@
 					<th>発注日</th>
 				</tr>
 				<tr>
-					<td><%=getOrderId() %></td>
-					<td><%=getName() %></td>
-					<td><%=getOrderDate() %></td>
+					<td><%=order.getOrder_id() %></td><!-- パラメータ取得 -->
+					<td><%=order.getUsername() %></td>
+					<td><%=order.getOrder_date() %></td>
 				</tr>
 			</table>
 
@@ -60,16 +66,16 @@
 				<tr>
 					<td>入金</td>
 					<td><select name="payment">
-						<option value="wait">入金待ち</option>
-						<option value="paid">入金済</option>
+						<option value="入金待ち">入金待ち</option>
+						<option value="入金済">入金済</option>
 					</select></td>
 				</tr>
 				<tr>
 					<td>発送</td>
 					<td><select name="send">
-						<option value="not">未</option>
-						<option value="preparing">発送準備中</option>
-						<option value="sent">発送済</option>
+						<option value="未">未</option>
+						<option value="発送準備中">発送準備中</option>
+						<option value="発送済">発送済</option>
 					</select></td>
 				</tr>
 			</table>
@@ -78,7 +84,7 @@
 		</form>
 
 		<!-- フッター -->
-		<%@ include file="/common/footer.jsp" %>
+		<%@include file="/common/footer.jsp" %>
 
 	</body>
 </html>
