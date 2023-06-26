@@ -10,8 +10,13 @@
 	</head>
 	<body>
 		<!-- ヘッダー -->
+<<<<<<< HEAD
+		<%@ include file="/common/header.jsp" %>
+		<hr style="height: 2px; background-color: #98fd98"></hr>
+=======
 <% Order order = (Order) request.getAttribute("order"); %>
 <% Customer customer = (Customer) request.getAttribute("customer"); %>
+>>>>>>> main
 
 		<table style="margin: auto">
 			<tr>
@@ -68,7 +73,8 @@
 		</table>
 
 		<!-- フッター -->
+		<hr></hr>
+		<%@ include file="/common/footer.jsp" %>
 
-	</body>
 </html>
 
