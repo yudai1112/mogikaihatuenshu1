@@ -9,7 +9,8 @@
 
 	<body>
 		<!-- ヘッダー -->
-
+		<%@ include file="/common/header.jsp" %>
+		<hr style="height: 2px; background-color: #98fd98"></hr>
 
 		<table style="margin: auto">
 			<tr>
@@ -29,29 +30,32 @@
 		</table>
 		<hr></hr>
 
-		<form action="">
+		<form action="" >
 			<table style="margin: auto">
 				<tr>
 					<td>入金</td>
 					<td><select name="payment">
 						<option value="wait">入金待ち</option>
 						<option value="paid">入金済</option>
-					</select></td>
+					</td>
 				</tr>
 				<tr>
 					<td>発送</td>
 					<td><select name="send">
 						<option value="not">未</option>
 						<option value="preparing">発送準備中</option>
-						<option value="sent">発送済</option>
-					</select></td>
+						<option value="sent">発送済</option></td>
 				</tr>
 			</table>
 
-			<input type="submit" value="更新" style="text-align: center">
+			<div style="text-align: center; padding-top: 20px">
+				<input type="submit" value="更新" >
+			</div>
 		</form>
 
 		<!-- フッター -->
+		<hr></hr>
+		<%@ include file="/common/footer.jsp" %>
 
 	</body>
 </html>

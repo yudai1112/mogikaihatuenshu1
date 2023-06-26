@@ -1,3 +1,5 @@
+<!-- 商品登録画面 -->
+
 <%@page contentType="text/html; charset=UTF-8"%>
 
 <html>
@@ -9,24 +11,22 @@
 		<!-- ブラウザ全体 -->
 		<div id="wrap">
 
-			<!-- ヘッダー部分 -->
+			<!-- ヘッダー -->
 			<%@ include file="/common/header.jsp" %>
+			<hr style="height: 2px; background-color: #98fd98"></hr>
 
-					<!-- ページタイトル -->
-					<div id="page_title">
-						<h2 style = "text-align:center">商品登録</h2>
-					</div>
+			<!-- ページタイトル -->
+				<div id="page_title">
+					<h2 style = "text-align:center">商品登録</h2>
 				</div>
-			</div>
+		</div>
 
-			<!-- 書籍登録コンテンツ部分 -->
-			<div id="main" class="container">
+		<!-- 書籍登録コンテンツ部分 -->
+		<div id="main" class="container">
 
-
-
-				<!--  入力フォーム -->
-				<form action="<%=request.getContextPath()%>/insert">
-					<table class="order-form"  style="text-align:center">
+			<!--  入力フォーム -->
+			<form action="<%=request.getContextPath()%>/insert">
+				<table style="text-align:center; margin: auto">
 					<tr>
 						<th>商品ナンバー</th>
 						<td><input type="text" name="number"></td>
@@ -44,28 +44,27 @@
 						<td><input type="text" name="price"></td>
 					</tr>
 
-					</table>
+				</table>
 
-<div style="display: flex; justify-content: center;">
-					<input type="submit" value="登録">
-					</div>
-				</form>
+				<div style="display: flex; justify-content: center;">
+					<input type="submit" value="登録" style>
+				</div>
+			</form>
+		</div>
 
-			<!-- メニュー部分 -->
-			<div id="menu">
-				<div class="container">
-					<!-- ナビゲーション  -->
-					<div id="nav" style="display: flex; justify-content: center;">
-						<ul>
-							<li><a href ="<%=request.getContextPath()%>/view/menu.jsp" >[商品一覧に戻る]</a></li>
-						</ul>
-					</div>
-
+		<!-- メニュー部分 -->
+		<div id="menu">
+			<div class="container">
+				<!-- ナビゲーション  -->
+				<div id="nav" style="display: flex; justify-content: center;">
+					<p><a href ="<%=request.getContextPath()%>/view/menu.jsp" >[商品一覧に戻る]</a></p>
+				</div>
 			</div>
 
-			<!-- フッター部分 -->
+			<!-- フッター -->
+			<hr></hr>
 			<%@ include file="/common/footer.jsp" %>
-
 		</div>
 	</body>
+</html>
 </html>
