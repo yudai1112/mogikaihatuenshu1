@@ -26,6 +26,7 @@
 
 		<tr>
 			<%
+			int totalPrice = 0;
 			int total = 0;
 			if(cart_list!=null){
 				for(int i=0; i<cart_list.size(); i++){
@@ -40,8 +41,9 @@
 		</tr>
 
 		<%
-
+		total += cart_list.get(i).getTotal();
 		}
+		totalPrice = 2000 * total;
 		}%>
 
 	</table>
@@ -51,7 +53,7 @@
 	<table class="total-price-table" style="margin: auto">
 		<tr>
 			<th style="background-color: #ff7f50">合計</th>
-			<td><%=total %>円</td>
+			<td><%=totalPrice %>円</td>
 		</tr>
 	</table>
 	<br>
