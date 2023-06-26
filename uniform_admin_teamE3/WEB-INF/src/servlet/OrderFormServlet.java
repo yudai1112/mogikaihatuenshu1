@@ -20,7 +20,7 @@ import dao.*;
  */
 public class OrderFormServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String error = "";
 		String cmd = "";
