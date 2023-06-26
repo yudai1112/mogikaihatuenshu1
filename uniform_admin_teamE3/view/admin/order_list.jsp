@@ -51,7 +51,7 @@
 				<td>2023年1月1日</td>
 				<td>入金済</td>
 				<td>未</td>
-				<td><a href="">詳細<a></td>
+				<td><a href="<%=request.getContextPath()%>/orderDetail?orderno=1">詳細<a></td>
 				<td>/</td>
 				<td><a href="">更新<a></td>
 			</tr>
