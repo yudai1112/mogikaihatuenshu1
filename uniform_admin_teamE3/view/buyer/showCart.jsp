@@ -56,7 +56,7 @@
 	</table>
 	<br>
 
-	<form action="" class="buy-button">
+	<form action="http://localhost:8080/uniform_admin_teamE3/view/buyer/userForm.jsp" class="buy-button">
 		<input type="submit" value="購入/お客様情報入力">
 	</form>
 
