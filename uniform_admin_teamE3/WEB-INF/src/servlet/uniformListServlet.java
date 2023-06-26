@@ -1,51 +1,31 @@
 package servlet;
-/**
- *
- */
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-
-import bean.Uniform;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import dao.*;
+import bean.*;
+import java.util.ArrayList;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-public class uniformListServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class UniformListServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// エラー文を表示する変数errorとコマンドを設定する変数cmdを設定、初期化
-		String error = "";
-		String cmd = "";
 
-		try {
+		//必要クラスをインスタンス化
+		UniformDAO uniDao = new UniformDAO();
+		ArrayList<Uniform> uniform_list = new ArrayList<Uniform>();
 
-			// UniformDAOをインスタンス化する
-			uniDao = new uniDao();
+		//uniform_listにselectListメソッドを呼び出し格納
+		uniform_list = uniDao.selectList();
 
-			// 関連メソッドを呼び出し、戻り値としてBookオブジェクトのリストを取得する
-			ArrayList<Uniform> uniformList = uniDao.selectAll();
+		//リクエストスコープに登録
+		request.setAttribute("uniform_list", uniform_list);
 
-			// 取得したListをリクエストスコープに"unifrom_list"という名前で格納する
-			request.setAttribute("uniform_list", uniformList);
+		//JSPにフォワード
+		request.getRequestDispatcher("/view/buyer/productList.jsp").forward(request, response);
 
-		} catch (IllegalStateException e) {
-			error = "DB接続エラーの為、一覧表示は行えませんでした。";
-			cmd = "menu";
-		} finally {
-			// エラーの有無でフォワード先を呼び分ける
-			if (error.equals("")) {
-				// エラーが無い場合はitem_list.jspにフォワード
-				request.getRequestDispatcher("/view/item_list.jsp").forward(request, response);
-			} else {
-				// エラーが有る場合はerror.jspにフォワードする
-				request.setAttribute("error", error);
-				request.setAttribute("cmd", cmd);
-				request.getRequestDispatcher("/view/error.jsp").forward(request, response);
-			}
-		}
 	}
 }
