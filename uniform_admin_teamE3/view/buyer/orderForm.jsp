@@ -30,7 +30,7 @@
 		</table>
 			<input type="submit" value="カートに入れる">
 		</form>
-		<p><a href="http://localhost:8080/uniform_admin_teamE3/view/buyer/productList.jsp">商品一覧に戻る</a></p>
+		<p><a href="<%=request.getContextPath() %>/uniformList">商品一覧に戻る</a></p>
 
 	</body>
 </html>
