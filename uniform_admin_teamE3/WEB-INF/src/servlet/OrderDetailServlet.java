@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import bean.*;
 import dao.*;
 
-public class OrderDetailServlet extends HttpServlet{
+public class OrderDetailServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -22,29 +22,47 @@ public class OrderDetailServlet extends HttpServlet{
 		OrderDAO orderDao = new OrderDAO();
 		Order order = new Order();
 
-		// 文字エンコードを指定
-		request.setCharacterEncoding("UTF-8");
+		try {
 
-		String ordernoStr = request.getParameter("orderno");
-		int orderno = Integer.parseInt(ordernoStr);
+			// 文字エンコードを指定
+			request.setCharacterEncoding("UTF-8");
 
-		// メソッドの呼び出しと代入
-		order = orderDao.selectByOrderno(orderno);
+			//ordernoの値を取得
+			String ordernoStr = request.getParameter("orderno");
+			int orderno = Integer.parseInt(ordernoStr);
 
-		// リクエストスコープに登録
-		request.setAttribute("order", order);
+			// ordernoを元に注文情報を取得
+			order = orderDao.selectByOrderno(orderno);
 
-		CustomerDAO customerDAO = new CustomerDAO();
-		Customer customer = new Customer();
+			// リクエストスコープに登録
+			request.setAttribute("order", order);
 
-		String useridStr = order.getUserid();
-		int userid = Integer.parseInt(ordernoStr);
+			CustomerDAO customerDAO = new CustomerDAO();
+			Customer customer = new Customer();
 
-		customer = customerDAO.selectByUser_id(userid);
+			//useridを取得
+			String useridStr = order.getUserid();
+			int userid = Integer.parseInt(useridStr);
 
-		request.setAttribute("customer",customer);
+			//useridを元に利用者情報を取得
+			customer = customerDAO.selectByUser_id(userid);
 
+			//リクエストスコープに登録
+			request.setAttribute("customer", customer);
 
-		request.getRequestDispatcher("/view/admin/order_detail.jsp").forward(request, response);
+		} catch (IllegalStateException e) {
+			error = "DB接続エラーの為、注文内容詳細は表示できませんでした。";
+			cmd = "detail";
+		} finally {
+			//エラーがある場合
+			if (cmd.equals("detail")) {
+				request.setAttribute("error", error);
+				request.setAttribute("cmd", cmd);
+				request.getRequestDispatcher("/view/error.jsp").forward(request, response);
+			//エラーがない場合
+			} else {
+				request.getRequestDispatcher("/view/admin/order_detail.jsp").forward(request, response);
+			}
+		}
 	}
 }
