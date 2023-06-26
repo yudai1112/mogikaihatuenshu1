@@ -8,9 +8,11 @@ public class Uniform {
 
 	private String size; // サイズ
 
-	private String price; // 価格
+	private int price; // 価格
 
-	private String inventory; // 在庫数
+	private int inventory; // 在庫数
+
+	private String image;
 
 	/**
 	 * コンストラクタ<br>
@@ -21,8 +23,9 @@ public class Uniform {
 		this.uniformid = null;
 		this.name = null;
 		this.size = null;
-		this.price = null;
-		this.inventory = null;
+		this.price = 0;
+		this.inventory = 0;
+		this.image = null;
 	}
 
 //ゲッターメソッド↓
@@ -38,13 +41,18 @@ public class Uniform {
 		return size;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public String getInventory() {
+	public int getInventory() {
 		return inventory;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
 
 //ゲッターここまで↑
 
@@ -61,12 +69,15 @@ public class Uniform {
 		this.size = size;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
-	public void setInventory(String inventory) {
+	public void setInventory(int inventory) {
 		this.inventory = inventory;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 //セッターここまで↑
 
