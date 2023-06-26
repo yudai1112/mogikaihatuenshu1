@@ -22,7 +22,7 @@ public class Cart {
 		this.mSize = 0;
 		this.lSize = 0;
 		this.kidsSize = 0;
-		this.total = sSize + mSize + lSize + kidsSize;
+		this.total = 0;
 		String bikou = null;
 
 	}
@@ -85,3 +85,4 @@ public class Cart {
 
 
 }
+
