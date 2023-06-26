@@ -9,7 +9,8 @@
 
 	<body>
 		<!-- ヘッダー -->
-
+		<%@ include file="/common/header.jsp" %>
+		<hr style="height: 2px; background-color: #98fd98"></hr>
 
 		<table style="margin: auto">
 			<tr>
@@ -43,7 +44,7 @@
 			<!-- 内容（仮） -->
 			<tr style="text-align: center">
 				<td>0001</td>
-				<td>ユニフォームB</td>
+				<td>ユニフォームA</td>
 				<td>&yen;2000</td>
 				<td>100</td>
 				<td><a href="">削除<a></td>
@@ -53,6 +54,7 @@
 		</table>
 
 		<!-- フッター -->
-
+		<hr></hr>
+		<%@ include file="/common/footer.jsp" %>
 	</body>
 </html>

@@ -1,6 +1,8 @@
 <!-- 受注内容詳細画面 -->
 
 <%@page contentType="text/html; charset=UTF-8" %>
+<%@page import="bean.Order"%>
+<%@page import="bean.Customer"%>
 
 <html>
 	<head>
@@ -8,7 +10,13 @@
 	</head>
 	<body>
 		<!-- ヘッダー -->
-
+<<<<<<< HEAD
+		<%@ include file="/common/header.jsp" %>
+		<hr style="height: 2px; background-color: #98fd98"></hr>
+=======
+<% Order order = (Order) request.getAttribute("order"); %>
+<% Customer customer = (Customer) request.getAttribute("customer"); %>
+>>>>>>> main
 
 		<table style="margin: auto">
 			<tr>
@@ -35,37 +43,38 @@
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center; width: 200px">ご注文番号</td>
-				<td>1</td>
+				<td><%=order.getOrderno() %></td>
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center">商品番号</td>
-				<td>0001</td>
+				<td><%=order.getUniformid() %></td>
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center">商品名</td>
-				<td>ユニフォームA</td>
+				<td><%=order.getUniform_name() %></td>
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center">数量</td>
-				<td>1</td>
+				<td><%=order.getQuantity() %></td>
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center">購入者氏名</td>
-				<td>神田</td>
+				<td><%=customer.getUser_id() %></td>
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center">購入者メールアドレス</td>
-				<td>kanda@mail</td>
+				<td><%=customer.getMail() %></td>
 			</tr>
 			<tr>
 				<td style="background-color: #98fd98; text-align: center">購入者住所</td>
-				<td>sample県sample市〇〇</td>
+				<td><%=customer.getAddress() %></td>
 			</tr>
 
 		</table>
 
 		<!-- フッター -->
+		<hr></hr>
+		<%@ include file="/common/footer.jsp" %>
 
-	</body>
 </html>
 
