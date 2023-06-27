@@ -13,53 +13,53 @@
 	<%@ include file="/common/headerBuyer.jsp"%>
 	<h2 style="text-align: center">購入完了</h2>
 	<hr
-		style="text-align: center; height: 2px; background-color: black; width: 950px">
+		style="text-align: center; height: 2px; background-color: black;">
 
 	<p style="text-align: center">購入しました。</p>
 	<p style="text-align: center">お送りしたメールからお支払いの詳細をご確認ください。</p>
 
 	<%
-		HttpSession session = request.getSession();
-		ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cart_list");
+		ArrayList<Cart> cart_list = (ArrayList<Cart>)session.getAttribute("cart_list");
 	%>
 
-	<table class="order-list" style="margin: auto">
-
-
+	<table class="product-table" style="margin: auto">
 		<tr>
 			<th>商品</th>
-			<th>個数(サイズ)</th>
-			<th>金額</th>
-		</tr>
+			<th>サイズ(個数)</th>
+			<th>個数</th>
 
-		<%
-			for (int i = 0; i < cartList.size(); i++) {
-				Cart cartInfo = cartList.get(i);
-		%>
+		</tr>
 
 		<tr>
-			<td><%=cartInfo.getSelectedUni()%></td>
+			<%
+			int totalPrice = 0;
+			int total = 0;
+			if(cart_list!=null){
+				for(int i=0; i<cart_list.size(); i++){
+					%>
+			<td><%=cart_list.get(i).getSelectedUni() %></td>
 
-			<td><%=cartInfo.getsSize()%></td>
+			<td>S(<%=cart_list.get(i).getsSize() %>),M(<%=cart_list.get(i).getmSize()%>),L(<%=cart_list.get(i).getlSize() %>),kids(<%=cart_list.get(i).getKidsSize() %>)</td>
 
-			<td><%=cartInfo.getmSize()%></td>
-
-			<td><%=cartInfo.getlSize()%></td>
-
-			<td><%=cartInfo.getKidsSize()%></td>
-
-			<td><%=cartInfo.getTotal()%></td>
-
-			<td><%=2000 * cartInfo.getTotal()%></td>
-
-
+			<td><%=cart_list.get(i).getTotal() %></td>
 
 		</tr>
 
 		<%
-			}
-		%>
+		total += cart_list.get(i).getTotal();
+		}
+		totalPrice = 2000 * total;
+		}%>
 
+	</table>
+	<br>
+
+
+	<table class="total-price-table" style="margin: auto">
+		<tr>
+			<th style="background-color: #ff7f50">合計</th>
+			<td><%=totalPrice %>円</td>
+		</tr>
 	</table>
 	<br>
 	<% session.invalidate(); %>
@@ -68,7 +68,7 @@
 
 	<p style="text-align: center">
 		<a
-			href="http://localhost:8080/uniform_admin_teamE3/view/buyer/productList.jsp">商品一覧に戻る</a>
+			href="<%=request.getContextPath() %>/uniformLIst">商品一覧に戻る</a>
 	</p>
 
 </body>

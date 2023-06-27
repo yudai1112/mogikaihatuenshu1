@@ -15,7 +15,7 @@ ArrayList<Uniform> uniform_list = (ArrayList<Uniform>)request.getAttribute("unif
 	<%@ include file="/common/headerBuyer.jsp"%>
 	<h2 style="text-align: center">商品一覧</h2>
 	<hr
-		style="text-align: center; height: 2px; background-color: black; width: 950px">
+		style="text-align: center; height: 2px; background-color: black;">
 	<table style="margin: auto" class="product-table">
 		<!-- 商品一覧テーブル -->
 		<tr>
@@ -35,7 +35,7 @@ ArrayList<Uniform> uniform_list = (ArrayList<Uniform>)request.getAttribute("unif
 
 			%>
 		<tr>
-			<td><img src="<%=request.getContextPath()%>/img/<%=uni.getImg()%>"></td>
+			<td><img src="<%=request.getContextPath()%>/img/<%=uni.getImage()%>"></td>
 			<td><%=uni.getName()%></td>
 			<td><%=uni.getPrice()%></td>
 			<td>S,M,L,子供用</td>

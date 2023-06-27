@@ -15,7 +15,7 @@
 	<%@ include file="/common/headerBuyer.jsp"%>
 	<h2 style="text-align: center">カート内容確認</h2>
 	<hr
-		style="text-align: center; height: 2px; background-color: black; width: 950px">
+		style="text-align: center; height: 2px; background-color: black;">
 	<table class="product-table" style="margin: auto">
 		<tr>
 			<th>商品</th>

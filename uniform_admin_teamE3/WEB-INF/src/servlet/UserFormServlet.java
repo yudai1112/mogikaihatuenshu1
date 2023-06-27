@@ -54,8 +54,8 @@ public class UserFormServlet extends HttpServlet {
 
 			// Customerオブジェクト生成、setterメソッド利用して設定
 			Customer customer = new Customer();
-			customer.setName(name);
-			customer.setMailAddress(mailAddress);
+			customer.setUsername(name);
+			customer.setMail(mailAddress);
 			customer.setAddress(address);
 			customer.setRemark(remark);
 
@@ -69,7 +69,7 @@ public class UserFormServlet extends HttpServlet {
 			// エラーの有無でフォワード先呼び分け
 			if (error.equals("")) {
 				// エラー無し→OrderConfirmServlet
-				request.getRequestDispatcher("/orderConfirm").forward(request, response);
+				request.getRequestDispatcher("http://localhost:8080/uniform_admin_teamE3/view/buyer/buyConfirm.jsp").forward(request, response);
 			} else {
 				// エラーあり→error.jsp
 				request.setAttribute("error", error);
