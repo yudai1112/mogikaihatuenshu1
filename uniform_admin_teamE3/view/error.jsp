@@ -1,3 +1,5 @@
+<!-- (6/27更新 kondo) -->
+
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.ArrayList,bean.Uniform"%>
 
@@ -43,21 +45,21 @@
 					<%
 					if (cmd.equals("main")) {
 					%>
-					<a href="<%=request.getContextPath()%>/view/menu.jsp">[商品一覧に戻る]</a>
+					<a href="<%=request.getContextPath()%>/view/buyer/uniformList.jsp">[商品一覧に戻る]</a>
 
 					<%
 					} else if(cmd.equals("logout")) {
 					%>
-					<a href="<%=request.getContextPath()%>/view/menu.jsp">[ログイン画面へ]</a>
+					<a href="<%=request.getContextPath()%>/view/admin/login.jsp">[ログイン画面へ]</a>
 
 					<%
 					} else if(cmd.equals("userForm")) {
 					%>
-					<a href="<%=request.getContextPath()%>/view/userForm.jsp">[購入者情報入力画面へ]</a>
+					<a href="<%=request.getContextPath()%>/view/buyer/userForm.jsp">[購入者情報入力をやり直す]</a>
 					<%
-					} else {
+					} else if(cmd.equals("orderlist")) {
 					%>
-						<a href="<%=request.getContextPath()%>/">[一覧表示に戻る]</a>
+						<a href="<%=request.getContextPath()%>/view/admin/orderList.jsp">[受注一覧表示に戻る]</a>
 					<%
 					}
 					%>
