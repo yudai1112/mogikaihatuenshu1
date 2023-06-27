@@ -26,8 +26,22 @@ public class OrderConfirmServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 
 			// インスタンス化
-			Customer customer = (Customer) request.getAttribute("customer");
+			Customer customer = (Customer) session.getAttribute("customer");
+
+
+			/*test
+			customer = new Customer();
+			customer.setUser_id(1);
+			customer.setUsername("test");
+			customer.setMail("i@i");
+			customer.setAddress("aaa");
+			customer.setRemark("ss");
+			*/
+
+
 			Cart cart = (Cart) session.getAttribute("cart_list");
+
+
 			Order order = new Order();
 			OrderDAO orDAO = new OrderDAO();
 
@@ -40,7 +54,7 @@ public class OrderConfirmServlet extends HttpServlet {
 			String uniform_result = request.getParameter("result");
 			String uniform_bikou = request.getParameter("bikou");
 
-			String size = "S: " + uniform_sSize + "M: " + uniform_mSize + "L:" + uniform_lSize + "Kids:"
+			String size = " S: " + uniform_sSize + " M: " + uniform_mSize + " L:" + uniform_lSize + " Kids:"
 					+ uniform_kidsSize;
 
 			// パラメータを取得(customer)
@@ -49,6 +63,18 @@ public class OrderConfirmServlet extends HttpServlet {
 			String remaerk = customer.getRemark();
 			String payment_status = "未入金";
 			String send_status = "未発送";
+
+
+			/*test
+			//uniform_name = "requestgetParameter";
+			//uniform_sSize = "sSize";
+			//uniform_mSize = "mSize";
+			//uniform_lSize = "lSize";
+			//uniform_kidsSize = "kidsSize";
+			//uniform_result = "1";
+			//uniform_bikou = "bikou";
+			*/
+
 
 			// オーダークラスに代入
 			order.setUniformname(uniform_name);
