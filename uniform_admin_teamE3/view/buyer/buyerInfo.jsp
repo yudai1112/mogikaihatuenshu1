@@ -8,7 +8,7 @@
 	<!-- ヘッダー部分 -->
 	<%@ include file="/common/headerBuyer.jsp" %>
 	<h2 style="text-align:center">購入者情報入力</h2>
-	<hr style="text-align: center; height: 2px; background-color: black; width: 950px">
+	<hr style="text-align: center; height: 2px; background-color: black;">
 
 	<table style="margin:auto" class="product-table">
 		<tr>

@@ -8,8 +8,8 @@
 	<!-- ヘッダー部分 -->
 			<%@ include file="/common/headerBuyer.jsp" %>
 		<h2 style="text-align:center">注文フォーム</h2>
-		<hr style="text-align: center; height: 2px; background-color: black; width: 950px">
-		<form class="order" oninput="result.value=parseInt(sSize.value) + parseInt(mSize.value)+ parseInt(lSize.value)+ parseInt(kidsSize.value);">
+		<hr style="text-align: center; height: 2px; background-color: black;">
+		<form method="post" action="<%=request.getContextPath() %>/orderForm" class="order" oninput="result.value=parseInt(sSize.value) + parseInt(mSize.value)+ parseInt(lSize.value)+ parseInt(kidsSize.value);">
 		<table style="margin:auto" class="product-table">
 		<tr>
 			<th>ユニフォームの種類</th>
