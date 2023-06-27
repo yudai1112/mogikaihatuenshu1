@@ -14,18 +14,32 @@ public class UniformListServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//必要クラスをインスタンス化
-		UniformDAO uniDao = new UniformDAO();
-		ArrayList<Uniform> uniform_list = new ArrayList<Uniform>();
+		String error = "";
+		String cmd = "";
 
-		//uniform_listにselectListメソッドを呼び出し格納
-		uniform_list = uniDao.selectList();
+		try {
+			// 必要クラスをインスタンス化
+			UniformDAO uniDao = new UniformDAO();
+			ArrayList<Uniform> uniform_list = new ArrayList<Uniform>();
 
-		//リクエストスコープに登録
-		request.setAttribute("uniform_list", uniform_list);
+			// uniform_listにselectListメソッドを呼び出し格納
+			uniform_list = uniDao.selectList();
 
-		//JSPにフォワード
-		request.getRequestDispatcher("/view/buyer/productList.jsp").forward(request, response);
+			// リクエストスコープに登録
+			request.setAttribute("uniform_list", uniform_list);
+
+		} catch (Exception e) {
+			error = "DB接続エラーの為、カート状況は確認出来ません。";
+		} finally {
+			if (error.equals("")) {
+
+				// JSPにフォワード
+				request.getRequestDispatcher("/view/buyer/productList.jsp").forward(request, response);
+			} else {
+				request.setAttribute("error", error);
+				request.getRequestDispatcher("/view/error.jsp").forward(request, response);
+			}
+		}
 
 	}
 }
