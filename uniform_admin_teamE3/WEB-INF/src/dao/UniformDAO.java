@@ -94,7 +94,7 @@ public class UniformDAO {
 
 		// SQL文
 		ArrayList<Uniform> list = new ArrayList<Uniform>();
-		String sql = "SELECT uniformid,uniformname,size,price,inventory,image FROM uniform_info ORDER BY uniformid";
+		String sql = "SELECT * FROM uniform_info ORDER BY uniform_name;";
 
 		// 変数宣言
 		Connection con = null;
@@ -110,12 +110,12 @@ public class UniformDAO {
 
 			while (rs.next()) {
 				Uniform uniform = new Uniform();
-				uniform.setUniformid(rs.getString("uniformid"));
-				uniform.setName(rs.getString("uniformname"));
+				uniform.setUniformid(rs.getString("uniform_id"));
+				uniform.setName(rs.getString("uniform_name"));
 				uniform.setSize(rs.getString("size"));
 				uniform.setPrice(rs.getInt("price"));
 				uniform.setInventory(rs.getInt("inventory"));
-				uniform.setImage(rs.getString("image"));
+				uniform.setImage(rs.getString("img"));
 
 				list.add(uniform);
 			}
@@ -174,4 +174,39 @@ public class UniformDAO {
 		}
 
 	}
+
+
+	//DBに商品を登録するメソッド
+	public void insert(Uniform uniform) {
+
+		//変数宣言
+		Connection con = null;
+		Statement smt = null;
+
+		//SQL文
+		String sql = "INSERT INTO uniform_info VALUES('" + uniform.getUniformid() + "','" + uniform.getName() + "','" + uniform.getSize() + "'," + uniform.getPrice() + "," + uniform.getInventory() + ",'" + uniform.getImage() + "');";
+
+		try {
+
+			//DB接続
+			con = getConnection();
+			smt = con.createStatement();
+
+			//SQL文をDBへ発行(戻り値は使用しないため呼び出しだけ)
+			smt.executeUpdate(sql);
+
+		} catch (Exception e) {
+			throw new IllegalStateException(e);
+		} finally {
+			if( smt != null ) {
+				try{smt.close();}catch(SQLException ignore) {}
+			}
+			if( con != null ) {
+				try {con.close();}catch(SQLException ignore) {}
+			}
+		}
+
+	}
+
+
 }
