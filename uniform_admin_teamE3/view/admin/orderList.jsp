@@ -69,7 +69,7 @@
 						<td><%= orders.getSendstatus() %></td>
 						<td><a href="<%= request.getContextPath() %>/orderDetail?orderno=<%= orders.getOrderno() %>" >詳細<a></td>
 						<td>/</td>
-						<td><a href="<%= request.getContextPath() %>/updateStatus?orderno=<%= orders.getOrderno() %>">更新<a></td>
+						<td><a href="<%= request.getContextPath() %>/view/admin/updateStatus.jsp?orderno=<%= orders.getOrderno() %>">更新<a></td>
 					</tr>
 
 			<%

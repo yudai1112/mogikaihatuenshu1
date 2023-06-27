@@ -13,7 +13,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class uniformListServlet extends HttpServlet {
+public class UniformListAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class uniformListServlet extends HttpServlet {
 		try {
 
 			// UniformDAOをインスタンス化する
-			uniDao = new uniDao();
+			UniformDAO uniDao = new UniformDAO();
 
 			// 関連メソッドを呼び出し、戻り値としてBookオブジェクトのリストを取得する
 			ArrayList<Uniform> uniformList = uniDao.selectAll();
@@ -39,7 +39,7 @@ public class uniformListServlet extends HttpServlet {
 			// エラーの有無でフォワード先を呼び分ける
 			if (error.equals("")) {
 				// エラーが無い場合はitem_list.jspにフォワード
-				request.getRequestDispatcher("/view/item_list.jsp").forward(request, response);
+				request.getRequestDispatcher("/view/admin/uniformListAdmin.jsp").forward(request, response);
 			} else {
 				// エラーが有る場合はerror.jspにフォワードする
 				request.setAttribute("error", error);
