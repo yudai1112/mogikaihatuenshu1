@@ -10,12 +10,13 @@
 
 <%
 	Order order = (Order)request.getAttribute("order");
-
+//↓結合の際は消す
 	Date date = new Date();
 	order = new Order();
 	order.setOrder_id(1);
 	order.setOrder_date(date);
 	order.setUsername("test");
+//↑
 %>
 
 
