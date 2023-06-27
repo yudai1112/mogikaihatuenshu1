@@ -6,12 +6,19 @@
   -->
 
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@page import="bean.Order" %>
+<%@page import="bean.Order,java.util.Date" %>
 
 <%
-//サーブレットでクエストスコープに登録した情報を取得
-Order order= (Order)request.getAttribute("Order");
+	Order order = (Order)request.getAttribute("order");
+//↓結合の際は消す
+	Date date = new Date();
+	order = new Order();
+	order.setOrder_id(1);
+	order.setOrder_date(date);
+	order.setUsername("test");
+//↑
 %>
+
 
 <html>
 	<head>
