@@ -1,41 +1,56 @@
-<!-- 管理者ログイン画面 -->
+<!-- 管理者ログインページ -->
 
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@page import="bean.Admin"%>
+
+<%
+//各データをセッションから取得
+	String id = "";
+	String password = "";
+	String error = (String) request.getAttribute("error");
+	Cookie[] cookieList = request.getCookies(); //クッキーの取得
+
+	//クッキーがあるか判定
+	if (cookieList != null) {
+		for (Cookie cookie : cookieList) {
+			//クッキーからユーザー情報の取得
+			if (cookie.getName().equals("id")) {
+				id = cookie.getValue();
+			}
+			//クッキーからパスワード情報の取得
+			if (cookie.getName().equals("password")) {
+				password = cookie.getValue();
+			}
+		}
+	}
+	if (error == null) {
+		error = "";
+	}
+%>
 
 <html>
 	<head>
 		<title>受注管理システム</title>
+
 	</head>
 
 	<body>
 		<!-- ヘッダー -->
-		<%@ include file="/common/header.jsp" %>
-		<hr style="height: 2px; background-color: #98fd98"></hr>
 
 		<!-- コンテンツ部分 -->
 
-		<h2 style="text-align: center">管理者ログイン</h2>
+		<h2>管理者ログイン</h2>
 		<hr></hr>
 
+		<h4>管理者ログイン</h4>
 
-		<form action="" method="post">
-			<table style="margin: auto">
-				<tr>
-					<td>ID</td>
-					<td><input type="text"></td>
-				</tr>
-				<tr>
-					<td>パスワード</td>
-					<td><input type="pass"></td>
-			</table>
-			<div style="text-align: center; padding-top: 20px">
-				<input type="submit" value="ログイン" style="text-align: center">
-			</div>
+		<form action="<%=request.getContextPath()%>/login" method="POST">
+			<p>ID<input type="text" name="id"></p>
+			<p>パスワード<input type="password" name="password"></p>
+			<input type="submit" value="ログイン">
 		</form>
 
 		<!-- フッター -->
-		<hr></hr>
-		<%@ include file="/common/footer.jsp" %>
 
 	</body>
 </html>

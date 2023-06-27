@@ -12,8 +12,8 @@ import dao.OrderDAO;
 
 public class OrderListServlet extends HttpServlet {
 
-	//doGetメソッド
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	//doPostメソッド
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
 		//エラー処理の為の変数宣言

@@ -13,7 +13,7 @@ import bean.*;
 import dao.*;
 
 /**
- * 書籍管理システムにおけるカート登録機能に関する処理をおこなうサーブレットクラス
+ * カート登録機能に関する処理をおこなうサーブレットクラス
  *
  * author KandaITSchool
  *
@@ -56,21 +56,23 @@ public class OrderFormServlet extends HttpServlet {
 			kidsSize = Integer.parseInt(uniform_kidsSize);
 		}
 
+		int totalNum = 0;
+		if (uniform_result != null && !uniform_result.isEmpty()) {
+			totalNum = Integer.parseInt(uniform_result);
+		}
 
-		int total = sSize + mSize + lSize + kidsSize;
 		// Orderのインスタンスを生成し、各setterメソッドを利用して値を設定する
 		Cart cart = new Cart();
 
-		cart.setSelectedUni(uniform_name);
+		cart.setUniform_name(uniform_name);
 		cart.setsSize(sSize);
 		cart.setmSize(mSize);
 		cart.setlSize(lSize);
 		cart.setKidsSize(kidsSize);
-		cart.setTotal(total);
+		cart.setTotal(totalNum);
 		cart.setBikou(uniform_bikou);
 
-
-		// セッションからorder_listのList配列を取得する
+		// セッションからcart_listのList配列を取得する
 		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart_list");
 
 		// 取得できなかった場合はArrayList<Cart>配列を新規で作成する
@@ -83,7 +85,7 @@ public class OrderFormServlet extends HttpServlet {
 		session.setAttribute("cart_list", cart_list);
 
 		// エラーが無い場合はshowCartServletにフォワード
-		request.getRequestDispatcher("/showCart").forward(request, response);
+		request.getRequestDispatcher("/view/buyer/showCart.jsp").forward(request, response);
 
 	}
 }

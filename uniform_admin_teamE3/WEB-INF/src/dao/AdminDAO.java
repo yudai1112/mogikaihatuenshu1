@@ -50,7 +50,7 @@ public class AdminDAO {
 	 *
 	 * @return userオブジェクト
 	 */
-	public Admin selectByUser(String admin_id, String password) {
+	public Admin selectByUser(String administrator_id, String password) {
 
 		Connection con = null;
 		Statement smt = null;
@@ -62,14 +62,14 @@ public class AdminDAO {
 			smt = con.createStatement();
 
 			// sql文
-			String sql = "SELECT * FROM administrator_info WHERE user ='" + admin_id + "' AND password='" + password
+			String sql = "SELECT * FROM administrator_info WHERE administrator_id ='" + administrator_id + "' AND password='" + password
 					+ "'";
 
 			ResultSet rs = smt.executeQuery(sql);
 
 			// 結果セットからユーザー情報を取り出す
 			if (rs.next()) {
-				admin.setId(rs.getString("user"));
+				admin.setId(rs.getString("administrator_id"));
 				admin.setPassword(rs.getString("password"));
 			}
 		} catch (Exception e) {
